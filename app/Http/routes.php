@@ -11,18 +11,16 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
-
-Route::group(['prefix' => 'blog'], function () {
-    Route::get('/view/{id}', ['uses' => 'BlogController@get']);
-    Route::post('/create', ['uses' => 'BlogController@create']);
-    Route::put('/update', ['uses' => 'BlogController@update']);
-    Route::delete('delete', ['uses' => 'BlogController@delete']);
-    Route::get('/', ['uses' => 'BlogController@get']);
-});
 
 Route::auth();
 
-Route::get('/home', 'HomeController@index');
+Route::get('/', ['uses' => 'HomeController@index', 'as' => 'home']);
+
+Route::group(['prefix' => 'blog'], function () {
+    Route::get('/view/{id}', ['uses' => 'BlogController@get', 'as' => 'blog_view']);
+    Route::post('/create', ['uses' => 'BlogController@create', 'as' => 'blog_create']);
+    Route::put('/update', ['uses' => 'BlogController@update', 'as' => 'blog_update']);
+    Route::delete('delete', ['uses' => 'BlogController@delete', 'as' => 'blog_delete']);
+    Route::get('/', ['uses' => 'BlogController@get', 'as' => 'blog_all']);
+});
+

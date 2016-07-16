@@ -2,15 +2,19 @@
 
 namespace Steller\Blog\Http\Controllers;
 
+use Illuminate\Http\Response;
 use Steller\Blog\Http\Requests;
 use Illuminate\Http\Request;
 
+/**
+ * Class HomeController
+ *
+ * @package Steller\Blog\Http\Controllers
+ */
 class HomeController extends Controller
 {
     /**
      * Create a new controller instance.
-     *
-     * @return void
      */
     public function __construct()
     {
@@ -20,9 +24,9 @@ class HomeController extends Controller
     /**
      * Show the application dashboard.
      *
-     * @return \Illuminate\Http\Response
+     * @return Response
      */
-    public function index()
+    public function index() : Response
     {
         return view('home');
     }
