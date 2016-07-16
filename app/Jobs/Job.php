@@ -4,6 +4,11 @@ namespace Steller\Blog\Jobs;
 
 use Illuminate\Bus\Queueable;
 
+/**
+ * Class Job
+ *
+ * @package Steller\Blog\Jobs
+ */
 abstract class Job
 {
     /*

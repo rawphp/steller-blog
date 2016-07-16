@@ -3,8 +3,14 @@
 namespace Steller\Blog\Providers;
 
 use Illuminate\Contracts\Auth\Access\Gate as GateContract;
+use Illuminate\Contracts\Auth\Access\Gate;
 use Illuminate\Foundation\Support\Providers\AuthServiceProvider as ServiceProvider;
 
+/**
+ * Class AuthServiceProvider
+ *
+ * @package Steller\Blog\Providers
+ */
 class AuthServiceProvider extends ServiceProvider
 {
     /**
@@ -19,13 +25,10 @@ class AuthServiceProvider extends ServiceProvider
     /**
      * Register any application authentication / authorization services.
      *
-     * @param  \Illuminate\Contracts\Auth\Access\Gate  $gate
-     * @return void
+     * @param  Gate $gate
      */
     public function boot(GateContract $gate)
     {
         $this->registerPolicies($gate);
-
-        //
     }
 }

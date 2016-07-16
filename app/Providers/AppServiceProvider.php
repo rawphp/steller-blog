@@ -4,12 +4,15 @@ namespace Steller\Blog\Providers;
 
 use Illuminate\Support\ServiceProvider;
 
+/**
+ * Class AppServiceProvider
+ *
+ * @package Steller\Blog\Providers
+ */
 class AppServiceProvider extends ServiceProvider
 {
     /**
      * Bootstrap any application services.
-     *
-     * @return void
      */
     public function boot()
     {
@@ -18,8 +21,6 @@ class AppServiceProvider extends ServiceProvider
 
     /**
      * Register any application services.
-     *
-     * @return void
      */
     public function register()
     {
