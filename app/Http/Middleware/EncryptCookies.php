@@ -4,6 +4,11 @@ namespace Steller\Blog\Http\Middleware;
 
 use Illuminate\Cookie\Middleware\EncryptCookies as BaseEncrypter;
 
+/**
+ * Class EncryptCookies
+ *
+ * @package Steller\Blog\Http\Middleware
+ */
 class EncryptCookies extends BaseEncrypter
 {
     /**
@@ -11,7 +16,5 @@ class EncryptCookies extends BaseEncrypter
      *
      * @var array
      */
-    protected $except = [
-        //
-    ];
+    protected $except = [];
 }
