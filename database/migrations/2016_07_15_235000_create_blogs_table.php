@@ -17,10 +17,13 @@ class CreateBlogsTable extends Migration
     {
         Schema::create(self::TABLE, function (Blueprint $table) {
             $table->increments('id');
+            $table->integer('owner_id')->unsigned();
             $table->string('name');
             $table->boolean('is_active')->default(true);
             $table->timestamps();
-            $table->timestamp('deleted_at')->nullable();
+            $table->softDeletes();
+
+            $table->foreign('owner_id')->references('id')->on(CreateUsersTable::TABLE);
         });
     }
 

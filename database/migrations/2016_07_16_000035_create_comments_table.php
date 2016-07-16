@@ -17,9 +17,14 @@ class CreateCommentsTable extends Migration
     {
         Schema::create(self::TABLE, function (Blueprint $table) {
             $table->increments('id');
+            $table->integer('post_id')->unsigned();
+            $table->integer('user_id')->unsigned();
             $table->string('content');
             $table->timestamps();
-            $table->timestamp('deleted_at');
+            $table->softDeletes();
+
+            $table->foreign('post_id')->references('id')->on(CreatePostsTable::TABLE);
+            $table->foreign('user_id')->references('id')->on(CreateUsersTable::TABLE);
         });
     }
 

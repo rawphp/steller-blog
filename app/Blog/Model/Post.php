@@ -5,6 +5,7 @@ namespace Steller\Blog\Model;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Database\Eloquent\SoftDeletes;
 use Steller\Blog\User;
 
 /**
@@ -14,10 +15,13 @@ use Steller\Blog\User;
  */
 class Post extends Model
 {
+    use SoftDeletes;
+
     /** @var  array */
-    protected $fillable = [
-        'title', 'body',
-    ];
+    protected $fillable = ['title', 'body',];
+
+    /** @var  array */
+    protected $dates = ['deleted_at',];
 
     /**
      * Get owner blog.

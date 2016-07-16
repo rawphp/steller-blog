@@ -3,6 +3,7 @@
 namespace Steller\Blog;
 
 use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Steller\Blog\Model\Blog;
 
@@ -13,6 +14,8 @@ use Steller\Blog\Model\Blog;
  */
 class User extends Authenticatable
 {
+    use SoftDeletes;
+
     /** @var  array */
     protected $fillable = [
         'name', 'email', 'password',

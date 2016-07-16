@@ -3,6 +3,7 @@
 namespace Steller\Blog\Model;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 /**
  * Class Comment
@@ -11,8 +12,11 @@ use Illuminate\Database\Eloquent\Model;
  */
 class Comment extends Model
 {
+    use SoftDeletes;
+
     /** @var  array */
-    protected $fillable = [
-      'content'
-    ];
+    protected $fillable = ['content'];
+
+    /** @var  array */
+    protected $dates = ['deleted_at',];
 }
