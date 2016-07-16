@@ -14,3 +14,15 @@
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::group(['prefix' => 'blog'], function () {
+    Route::get('/list', ['uses' => 'BlogController@get']);
+    Route::get('/get/{id}', ['uses' => 'BlogController@get']);
+    Route::post('/create', ['uses' => 'BlogController@create']);
+    Route::put('/update', ['uses' => 'BlogController@update']);
+    Route::delete('delete', ['uses' => 'BlogController@delete']);
+});
+
+Route::auth();
+
+Route::get('/home', 'HomeController@index');
