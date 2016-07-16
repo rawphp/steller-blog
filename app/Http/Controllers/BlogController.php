@@ -1,9 +1,9 @@
 <?php
 
-namespace Steller\Http\Controllers;
+namespace Steller\Blog\Http\Controllers;
 
 use Illuminate\Http\Response;
-use Steller\Blog\Http\Controllers\Controller;
+use Steller\Blog\Model\Blog;
 
 /**
  * Class BlogController
@@ -19,9 +19,13 @@ class BlogController extends Controller
      *
      * @return Response
      */
-    public function get(int $id = 0) : Response
+    public function get(int $id = 0)
     {
+        if (0 !== $id) {
 
+        }
+
+        return view('blogs.index', ['data' => 'here']);
     }
 
     /**
