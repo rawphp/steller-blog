@@ -1,0 +1,13 @@
+default:
+  extensions:
+    Laracasts\Behat:
+      env_path: .env.behat
+    Behat\MinkExtension:
+      base_url: 'http://localhost'
+      default_session: laravel
+      laravel: ~
+#  suites:
+#    document:
+#      paths: [ features/api/document ]
+#      contexts:
+#        - RawPHP\DocumentStorage\Api\Behat\HttpContext

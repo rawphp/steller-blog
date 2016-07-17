@@ -28,5 +28,10 @@ class Controller extends BaseController
     public function __construct()
     {
         $this->user = Auth::user();
+
+        if (null === $this->user) {
+            $this->user     = new User();
+            $this->user->id = 0;
+        }
     }
 }

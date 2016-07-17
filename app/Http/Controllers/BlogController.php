@@ -24,9 +24,9 @@ class BlogController extends Controller
      */
     public function index() : View
     {
-        $blogs = Blog::all();
+        $blogs = Blog::with('owner', 'posts')->get();
 
-        return view('blogs.index', ['blogs' => $blogs]);
+        return view('blogs.index', ['blogs' => $blogs, 'user' => $this->user->id]);
     }
 
     /**

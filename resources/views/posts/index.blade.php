@@ -4,12 +4,10 @@
     <div class="container">
         <div class="row">
             <div class="col-xs-12">
-                <div class="panel panel-default">
-                    <div class="panel-heading">Steller Blogs</div>
-                    <div class="panel-body">
-
-                    </div>
+                <div class="page-header">
+                    <h1>Posts</h1>
                 </div>
+
             </div>
         </div>
     </div>

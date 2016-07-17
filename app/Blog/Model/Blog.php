@@ -18,7 +18,7 @@ class Blog extends Model
     use SoftDeletes;
 
     /** @var  array */
-    protected $fillable = ['name', 'owner_id'];
+    protected $fillable = ['name', 'owner_id', 'is_active'];
 
     /** @var  array */
     protected $dates = ['deleted_at',];

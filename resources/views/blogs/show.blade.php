@@ -4,23 +4,28 @@
     <div class="container">
         <div class="row">
             <div class="col-xs-12">
-                <div class="panel panel-default">
-                    <div class="panel-heading">
+                <div class="page-header">
+                    <h1>
                         {{ $blog->name }}
                         <span class="pull-right">
-                            <a href="{{ route('post_create', ['blog' => $blog->id]) }}"><button class="btn btn-default">Create Post</button></a>
+                        <a id="create-post-link" href="{{ route('post_create', ['blog' => $blog->id]) }}">
+                            <button class="btn btn-default">Create Post</button>
+                        </a>
                         </span>
-                    </div>
-                    <div class="panel-body">
-                        @foreach($blog->posts as $post)
-                            <div>
-                                <a href="{{ route('post_view', ['blog' => $blog->id, 'post' => $post->id]) }}">
-                                    <h4>{{ $post->title }}</h4></a>
-                            </div>
-                        @endforeach
-                    </div>
+                    </h1>
+                </div>
+
+                <div class="row">
+                    @foreach($blog->posts as $post)
+                        <div>
+                            <a href="{{ route('post_view', ['blog' => $blog->id, 'post' => $post->id]) }}">
+                                <h4>{{ $post->title }}</h4></a>
+                        </div>
+                    @endforeach
                 </div>
             </div>
         </div>
+    </div>
+    </div>
     </div>
 @endsection

@@ -2,6 +2,8 @@
 
 namespace Steller\Blog\Http\Controllers;
 
+use CreatePostsTable as Posts;
+use DB;
 use Illuminate\View\View;
 
 /**
@@ -12,20 +14,17 @@ use Illuminate\View\View;
 class HomeController extends Controller
 {
     /**
-     * Create a new controller instance.
-     */
-    public function __construct()
-    {
-        $this->middleware('auth');
-    }
-
-    /**
      * Show the application dashboard.
      *
      * @return View
      */
     public function index() : View
     {
-        return view('home');
+        $posts = DB::table(Posts::TABLE)
+                   ->orderBy('created_at')
+                   ->limit(10)
+                   ->get();
+
+        return view('home', ['posts' => $posts]);
     }
 }
