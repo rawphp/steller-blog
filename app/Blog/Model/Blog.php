@@ -1,6 +1,6 @@
 <?php
 
-namespace Steller\Blog\Model;
+namespace Steller\Blog\Blog\Model;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
@@ -11,14 +11,14 @@ use Steller\Blog\User;
 /**
  * Class Blog
  *
- * @package Blog\Model
+ * @package Steller\Blog\Blog\Model
  */
 class Blog extends Model
 {
     use SoftDeletes;
 
     /** @var  array */
-    protected $fillable = ['name',];
+    protected $fillable = ['name', 'owner_id'];
 
     /** @var  array */
     protected $dates = ['deleted_at',];
@@ -28,7 +28,7 @@ class Blog extends Model
      *
      * @return BelongsTo
      */
-    public function blog() : BelongsTo
+    public function owner() : BelongsTo
     {
         return $this->belongsTo(User::class);
     }

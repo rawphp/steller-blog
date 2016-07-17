@@ -1,6 +1,6 @@
 <?php
 
-namespace Steller\Blog\Model;
+namespace Steller\Blog\Blog\Model;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
@@ -18,7 +18,7 @@ class Post extends Model
     use SoftDeletes;
 
     /** @var  array */
-    protected $fillable = ['title', 'body',];
+    protected $fillable = ['title', 'body', 'owner_id', 'blog_id'];
 
     /** @var  array */
     protected $dates = ['deleted_at',];

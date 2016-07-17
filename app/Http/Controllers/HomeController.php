@@ -2,9 +2,7 @@
 
 namespace Steller\Blog\Http\Controllers;
 
-use Illuminate\Http\Response;
-use Steller\Blog\Http\Requests;
-use Illuminate\Http\Request;
+use Illuminate\View\View;
 
 /**
  * Class HomeController
@@ -24,9 +22,9 @@ class HomeController extends Controller
     /**
      * Show the application dashboard.
      *
-     * @return Response
+     * @return View
      */
-    public function index() : Response
+    public function index() : View
     {
         return view('home');
     }

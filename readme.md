@@ -1,3 +1,7 @@
-# Steller Blog
+# Steller Blogs
 
+
+## Installation
+
+    composer install
 

@@ -3,11 +3,21 @@
 @section('content')
     <div class="container">
         <div class="row">
-            <div class="col-md-8 col-md-offset-2">
+            <div class="col-xs-12">
                 <div class="panel panel-default">
-                    <div class="panel-heading">{{ name }}</div>
+                    <div class="panel-heading">
+                        {{ $blog->name }}
+                        <span class="pull-right">
+                            <a href="{{ route('post_create', ['blog' => $blog->id]) }}"><button class="btn btn-default">Create Post</button></a>
+                        </span>
+                    </div>
                     <div class="panel-body">
-
+                        @foreach($blog->posts as $post)
+                            <div>
+                                <a href="{{ route('post_view', ['blog' => $blog->id, 'post' => $post->id]) }}">
+                                    <h4>{{ $post->title }}</h4></a>
+                            </div>
+                        @endforeach
                     </div>
                 </div>
             </div>

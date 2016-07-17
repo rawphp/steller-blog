@@ -51,7 +51,20 @@
             <!-- Left Side Of Navbar -->
             <ul class="nav navbar-nav">
                 <li><a href="{{ route('home') }}">Home</a></li>
-                <li><a href="{{ route('blogs') }}">Blogs</a></li>
+                @if (Auth::guest())
+                    <li><a href="{{ route('blogs') }}">Blogs</a></li>
+                @else
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+                            Blogs <span class="caret"></span>
+                        </a>
+
+                        <ul class="dropdown-menu" role="menu">
+                            <li><a href="{{ route('blogs') }}"><i class="fa fa-btn"></i>List Blogs</a></li>
+                            <li><a href="{{ route('blog_create') }}"><i class="fa fa-btn"></i>Create Blog</a></li>
+                        </ul>
+                    </li>
+                @endif
             </ul>
 
             <!-- Right Side Of Navbar -->

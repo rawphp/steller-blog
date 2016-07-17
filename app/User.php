@@ -5,7 +5,8 @@ namespace Steller\Blog;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Foundation\Auth\User as Authenticatable;
-use Steller\Blog\Model\Blog;
+use Steller\Blog\Blog\Model\Blog;
+use Steller\Blog\Blog\Model\Post;
 
 /**
  * Class User
@@ -34,5 +35,15 @@ class User extends Authenticatable
     public function blogs() : HasMany
     {
         return $this->hasMany(Blog::class);
+    }
+
+    /**
+     * Get user posts.
+     *
+     * @return HasMany
+     */
+    public function posts() : HasMany
+    {
+        return $this->hasMany(Post::class);
     }
 }

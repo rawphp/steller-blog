@@ -2,11 +2,11 @@
 
 namespace Steller\Blog\Http\Controllers\Auth;
 
-use Validator;
 use Steller\Blog\User;
 use Steller\Blog\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\ThrottlesLogins;
 use Illuminate\Foundation\Auth\AuthenticatesAndRegistersUsers;
+use Validator;
 
 /**
  * Class AuthController
@@ -50,7 +50,7 @@ class AuthController extends Controller
      *
      * @return Validator
      */
-    protected function validator(array $data) : Validator
+    protected function validator(array $data)
     {
         return Validator::make($data, [
             'name' => 'required|max:255',
